@@ -37,15 +37,19 @@ def assist(data):
         listening = True
         respond("I'm well how about you")
     
-    if "What time is it" in data:
+    if "what time is it" in data:
         listening = True
         respond(ctime())
+
+    if "who are you" in data:
+        listening = True
+        respond("Hello, I am Sarah")
 
     if "stop listening" in data:
         listening = False
         respond("stoped listening")
         return listening
-
+    
     return listening
 
 time.sleep(2)
