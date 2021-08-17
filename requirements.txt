@@ -1,5 +1,4 @@
 SpeechRecognition
-gTTS
-playsound
-pyaudio
-playsound
+webbrowser
+pyttsx3
+pywhatkit
