@@ -1,15 +1,14 @@
 import speech_recognition as sr
 import pyttsx3
-import pywhatkit
+from webfunc import *
 import webbrowser
 from time import ctime
 import time
 import os
 import requests, json
 
-engine = pyttsx3.init()
+engine = pyttsx3.init(driverName='sapi5')
 voices = engine.getProperty('voices')
-print(voices)
 engine.setProperty('voice', voices[1].id)
 rate = engine.getProperty('rate')
 engine.setProperty('rate', 125)
@@ -90,11 +89,17 @@ def assist(data):
                 listening = True
                 webbrowser.open("https://open.spotify.com/playlist/37i9dQZF1EuPcQ7TNislHh?si=fa7111596a38410b")
             else:
-                listening = True
+                listening = True 
                 play = data.replace('play', '')
-                pywhatkit.playonyt(play)
-
-        
+                yt(play)
+        #####  cooking something new  #####
+        '''
+        if "send whatsapp message" in data:
+            listening = True
+            kit.sendwhatmsg_instantly("+94715573601", "hello", wait_time=20)
+            print("sending msg")
+        '''
+        ###################################
         return listening
     
     except UnboundLocalError:
@@ -103,7 +108,7 @@ def assist(data):
 
 
 time.sleep(2)
-name = "Krishmika"
+name = "krishmika"
 respond(f"Hi {name}, how can i help you")
 listening = True
 while listening == True:
